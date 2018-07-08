@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ msg }}</h1>
-    <router-link to="/account">Account</router-link>
+    <router-link to="/account" class="btn btn-success ">Submit Account Details</router-link>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
     name: 'Home',
     data () {
       return {
-        msg: 'Welcome to Home page'
+        msg: 'DRIP CAPITAL ASSIGNMENT'
       }
     }
   }
@@ -28,8 +28,5 @@
   li {
     display: inline-block;
     margin: 0 10px;
-  }
-  a {
-    color: #42b983;
   }
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div class="account">
-    <AccountForm></AccountForm>
+    <div class="container">
+      <AccountForm></AccountForm>
+    </div>
   </div>
 </template>
 

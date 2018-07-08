@@ -38,19 +38,19 @@ export default {
     return {
       msg: 'Welcome to Photo Upload page',
       alerts: '',
-      selectedFile: null,
+      photoUpload:null,
+      panUpload:null,
+      aadharUpload:null,
       uploadComplete:"",
     }
   },
   methods:{
     onFileSelected(e){
-      this.uploadComplete = 0;
-      this.selectedFile = e.target.files[0];
-      console.log(this.$refs);
+      this.e = e.target.files[0];
     },
     upload(e){
       const fd = new FormData();
-      fd.append(e,this.selectedFile);
+      fd.append(e,this.e);
       fd.append('folderId',this.$route.params.id);
       this.$http.post(this.$http.$root+'/upload/'+e,fd, {
         onUploadProgress: uploadEvent => {

@@ -80,4 +80,23 @@ li {
 a {
   color: #42b983;
 }
+  label{
+    color: #A3A3A3;
+    font-size:14px;
+  }
+  input{
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding-right: 8px;
+    padding-left: 8px;
+    color: #525753;
+    overflow: auto;
+    resize: none;
+    font-size:16px;
+    outline: none;
+    border: 2px solid #E5E5E5;
+    border-radius: 4px;
+    -webkit-transition: all 0.30s ease-in-out;
+  }
 </style>
