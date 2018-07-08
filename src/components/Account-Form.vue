@@ -2,30 +2,36 @@
   <div class="account-form">
     <h1>{{ msg }}</h1>
     <form id="account-form" @submit.prevent="saveAccoutDetails">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" v-model="name" id="name" name="name" class="form-control" placeholder="Your Name" required="true">
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="name">Name</label>
+          <input type="text" v-model="name" id="name" name="name" class="form-control" placeholder="Your Name" required="true">
+        </div>
+
+        <div class="form-group col">
+          <label for="phone">Phone (Optional)</label>
+          <input type="text" v-model="phone" maxlength="10" id="phone" name="phone" class="form-control" placeholder="Your 10 digit Phone">
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" value="a@h.com" v-model="email" id="email" name="email" class="form-control" placeholder="Your Email" required="true">
       </div>
       <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="text" v-model="phone" id="phone" name="phone" class="form-control" placeholder="Your 10 digit Phone" required="true">
-      </div>
-      <div class="form-group">
         <label for="pan">Pan</label>
         <input type="text" v-model="pan" id="pan" npaname="pan" class="form-control" placeholder="Your 10 digit PAN" required="true">
       </div>
       <div class="form-group">
-        <label for="pan">Company</label>
-        <input type="text" v-model="company" id="company" npaname="company" class="form-control" placeholder="Company Name" required="true">
+        <label for="pan">Company (Optional)</label>
+        <input type="text" v-model="company" id="company" npaname="company" class="form-control" placeholder="Company Name">
       </div>
-      <button type="submit" class="btn btn-secondary width100">Save</button>
+      <div class="alerts text-danger mb-3 text-left">
+        {{alerts}}
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">Save Account Details</button>
     </form>
     <br>
-    {{alerts}}
   </div>
 </template>
 
@@ -36,7 +42,7 @@ export default {
     return {
       msg: 'Welcome to account page',
       name: '',
-      email:'a@h.com',
+      email:'',
       phone:'',
       pan:'',
       company:'',
@@ -98,5 +104,12 @@ a {
     border: 2px solid #E5E5E5;
     border-radius: 4px;
     -webkit-transition: all 0.30s ease-in-out;
+  }
+  button{
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    font-size: 500 ;
   }
 </style>

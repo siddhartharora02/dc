@@ -1,15 +1,24 @@
 <template>
   <div class="uploads">
-    <PhotoUpload :uid="id"></PhotoUpload>
+    <div class="container">
+      <h1>Step 2 of 4</h1>
+      <h2 class="mt-4 mb-2">Upload Documents</h2>
+      <h3 class="mb-5">Choose and Upload your Photo and KYC Documents (PAN Card, Aadhar Card and Passport)</h3>
+      <div class="row">
+        <div class="col">
+          <Upload :uid="id"></Upload>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import PhotoUpload from '@/components/PhotoUpload';
+  import Upload from '@/components/Upload';
   export default {
     name: 'Uploads',
     props: ['id'],
-    components: {PhotoUpload}
+    components: {Upload}
   }
 </script>
 

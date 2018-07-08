@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Account from '@/components/Account'
 import Uploads from '@/components/Uploads'
 import Bank from '@/components/Bank'
+import ProfileComplete from '@/components/ProfileComplete'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       name: 'Bank',
       props:true,
       component: Bank
+    },
+    {
+      path: '/profile-complete/:id',
+      name: 'ProfileComplete',
+      component: ProfileComplete
     }
   ],
   mode: 'history'

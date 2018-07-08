@@ -1,7 +1,15 @@
 <template>
   <div class="account">
     <div class="container">
-      <AccountForm></AccountForm>
+      <h1>Step 1 of 4</h1>
+      <h2 class="mt-4 mb-2">Profile Completeness</h2>
+      <h3 class="mb-5">Check if your profile is complete or not!</h3>
+
+      <div class="row">
+        <div class="col-6 offset-3">
+          <AccountForm></AccountForm>
+        </div>
+      </div>
     </div>
   </div>
 </template>
