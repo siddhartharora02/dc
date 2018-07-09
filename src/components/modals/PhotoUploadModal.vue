@@ -31,14 +31,15 @@
 <script>
   export default {
     name: 'PhotoUploadModal',
-    props: ['uid'],
+    props: ['profileCompletenessProp'],
     data () {
       return {
         msg: 'Welcome to Photo Upload page',
         alerts: '',
         photoUpload:null,
         uploadComplete:'',
-        fileName:'Choose File'
+        fileName:'Choose File',
+        profileCompletenessChild:''
       }
     },
     methods:{
@@ -61,10 +62,15 @@
             this.uploadComplete = Math.round(uploadEvent.loaded / uploadEvent.total*100);
           }
         }).then(res => {
-          console.log(res);
+          console.log("askfna");
         }).catch(err =>{
           console.log(err);
         })
+      },
+    },
+    watch:{
+      uploadComplete: function(){
+        this.$emit('photoUploaded', true);
       }
     }
   }

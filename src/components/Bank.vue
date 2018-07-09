@@ -2,7 +2,10 @@
   <div class="bank">
     <div class="container">
 
-      <h1>Step 3 of 4</h1>
+      <h1>Step 3 of 4 <span>(Profile {{profileCompleteness}} completed)</span></h1>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped" :class="(profileCompleteness == '100%')? 'bg-success':'bg-warning'" role="progressbar" :style="'width:'+ profileCompleteness" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
       <h2 class="mt-4 mb-2">Bank Account</h2>
       <h3 class="mb-5">Add your Bank Account(s) Details!</h3>
 
@@ -84,6 +87,7 @@ export default {
       accNumber:'',
       accounts:'',
       photo:'',
+      profileCompleteness : '',
       user_id: this.$route.params.id,
       show:false
     }
@@ -99,6 +103,7 @@ export default {
       }).then(res => {
         this.resetForm();
         this.fetchAccounts();
+        this.fetchData();
       }).catch(err => {
         console.log(err);
       })
@@ -109,6 +114,13 @@ export default {
         console.log(res.data)
         this.accounts = res.data.account;
         this.photo = this.$http.$root+'/uploads/'+res.data.photo
+      }).catch(err => {
+        console.log(err);
+      })
+    },
+    fetchData(){
+      this.$http.get(this.$http.$root+'/user/'+this.$route.params.id).then(res=>{
+        this.profileCompleteness = res.data.counter
       }).catch(err => {
         console.log(err);
       })
@@ -125,7 +137,8 @@ export default {
     }
   },
   created(){
-    this.fetchAccounts()
+    this.fetchAccounts();
+    this.fetchData();
   }
 }
 </script>

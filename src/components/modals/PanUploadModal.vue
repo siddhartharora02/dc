@@ -65,6 +65,12 @@
           console.log(err);
         })
       }
+    },
+    watch:{
+      uploadComplete: function(){
+        this.$emit('panUploaded', true);
+      }
     }
+
   }
 </script>

@@ -64,6 +64,11 @@
           console.log(err);
         })
       }
+    },
+    watch:{
+      uploadComplete: function(){
+        this.$emit('aadharUploaded', true);
+      }
     }
   }
 </script>
