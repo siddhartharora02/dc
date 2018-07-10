@@ -12,7 +12,7 @@
           <form class="upload-form" id="aadhar-upload-form" @submit.prevent="upload('aadharUpload')" enctype="multipart/form-data" method="post">
             <a class='d-block position-relative'>
               {{fileName}}
-              <input type="file" id="aadharUpload" name="aadharUpload" class="inputFile" @change="onFileSelected">
+              <input type="file" id="aadharUpload" name="aadharUpload" class="inputFile" @change="onFileSelected"  required>
             </a>
             <input type="submit" class="btn w-100 mb-3 mt-3" :class="(uploadComplete == 100)? 'btn-success':'btn-primary'" :value="(uploadComplete == 100)? 'Uploaded': (uploadComplete == 0) ? 'Upload' : 'Uploading'">
             <div class="progress" v-show="(uploadComplete == 0)? false: true">
@@ -68,6 +68,8 @@
     watch:{
       uploadComplete: function(){
         this.$emit('aadharUploaded', true);
+        let modal = '#'+this.$el.id.toString();
+        $(modal).find('button').trigger('click');
       }
     }
   }
