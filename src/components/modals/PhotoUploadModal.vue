@@ -70,10 +70,8 @@
       },
     },
     watch:{
-      uploadComplete: function(){
-        this.$emit('photoUploaded', true);
-      },
       closeModal: function(){
+        this.$emit('photoUploaded', true);
         let modal = '#'+this.$el.id.toString();
         $(modal).find('button').trigger('click');
       }
