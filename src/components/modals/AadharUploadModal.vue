@@ -68,8 +68,6 @@
     watch:{
       uploadComplete: function(){
         this.$emit('aadharUploaded', true);
-        let modal = '#'+this.$el.id.toString();
-        $(modal).find('button').trigger('click');
       }
     }
   }
