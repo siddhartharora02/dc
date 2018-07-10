@@ -38,13 +38,14 @@
         alerts: '',
         photoUpload:null,
         uploadComplete:'',
+        closeModal:false,
         fileName:'Choose File',
         profileCompletenessChild:''
       }
     },
     methods:{
       onFileSelected(e){
-        this.uploadComplete = ''
+        this.uploadComplete = '';
         this.fileName = e.target.files[0].name;
         if(e.target.id == 'photoUpload'){
           this.photoUpload = e.target.files[0];
@@ -62,7 +63,7 @@
             this.uploadComplete = Math.round(uploadEvent.loaded / uploadEvent.total*100);
           }
         }).then(res => {
-          console.log("askfna");
+          this.closeModal = true;
         }).catch(err =>{
           console.log(err);
         })
@@ -71,6 +72,10 @@
     watch:{
       uploadComplete: function(){
         this.$emit('photoUploaded', true);
+      },
+      closeModal: function(){
+        let modal = '#'+this.$el.id.toString();
+        $(modal).find('button').trigger('click');
       }
     }
   }

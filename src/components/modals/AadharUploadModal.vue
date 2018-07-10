@@ -36,6 +36,7 @@
         alerts: '',
         aadharUpload:null,
         uploadComplete:'',
+        closeModal:false,
         fileName:'Choose File'
       }
     },
@@ -59,7 +60,7 @@
             this.uploadComplete = Math.round(uploadEvent.loaded / uploadEvent.total*100);
           }
         }).then(res => {
-          console.log(res);
+          this.closeModal = true;
         }).catch(err =>{
           console.log(err);
         })
@@ -68,6 +69,10 @@
     watch:{
       uploadComplete: function(){
         this.$emit('aadharUploaded', true);
+      },
+      closeModal: function(){
+        let modal = '#'+this.$el.id.toString();
+        $(modal).find('button').trigger('click');
       }
     }
   }
